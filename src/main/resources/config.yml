@@ -1,0 +1,599 @@
+# CatPets Configuration
+# Generated automatically on first run
+
+# General settings
+general:
+  # Enable debug messages in console
+  debug: false
+  # Distance cat follows player
+  follow-distance: 3.0
+  # Cat teleport distance to player
+  teleport-distance: 20.0
+  # Cat name format (supports {player}, {cat}, {tier})
+  name-format: "&6{cat} &7(&bTier {tier}&7)"
+  # Show cat name always
+  always-show-name: true
+
+# Cat types configuration
+cats:
+  james:
+    display-name: "&cJames"
+    texture: "textures/entity/cat/james.png"
+    # Custom model data for resource pack
+    custom-model-data: 1001
+    tier1:
+      ability1:
+        name: "&cImmunity Shield"
+        description: "Immune to all damage for 5 seconds"
+        cooldown: 30
+        duration: 5
+      ability2:
+        name: "&aTrusted Regeneration"
+        description: "Creates 7x7 area giving Regen II to trusted players for 10s"
+        cooldown: 45
+        duration: 10
+        radius: 3.5
+    tier2:
+      ability1:
+        name: "&cEnhanced Immunity"
+        description: "Tier 1 + Permanent Strength I & Fire Resistance"
+        cooldown: 30
+        duration: 5
+        passive-effects:
+          - "STRENGTH:0"
+          - "FIRE_RESISTANCE:0"
+      ability2:
+        name: "&aCorrupted Regeneration"
+        description: "Tier 1 + Poisons untrusted players in area"
+        cooldown: 45
+        duration: 10
+        radius: 3.5
+        untrusted-effect: "POISON:1:10"
+    tier3:
+      ability1:
+        name: "&cUltimate Immunity"
+        description: "Tier 1+2 + Deals 2 extra damage when under 4 hearts"
+        cooldown: 30
+        duration: 5
+        passive-effects:
+          - "STRENGTH:0"
+          - "FIRE_RESISTANCE:0"
+        low-health-bonus-damage: 2.0
+        low-health-threshold: 8.0
+      ability2:
+        name: "&aDomain of Trust"
+        description: "Tier 1+2 + Wither to untrusted + prevents leaving zone"
+        cooldown: 60
+        duration: 15
+        radius: 3.5
+        untrusted-effect: "WITHER:1:15"
+        prevent-leave: true
+
+  bob:
+    display-name: "&9Bob"
+    texture: "textures/entity/cat/bob.png"
+    custom-model-data: 1002
+    tier1:
+      ability1:
+        name: "&bStunning Strike"
+        description: "Next hit stuns for 2s every 5s for 20s"
+        cooldown: 40
+        duration: 20
+        stun-duration: 2
+        stun-interval: 5
+      ability2:
+        name: "&fPhantom Armor"
+        description: "Invisibility with armor for 6s (cannot attack)"
+        cooldown: 50
+        duration: 6
+    tier2:
+      ability1:
+        name: "&bArmor Shredder"
+        description: "Tier 1 + Drains 50% more armor durability per hit"
+        cooldown: 40
+        duration: 20
+        stun-duration: 2
+        stun-interval: 5
+        armor-damage-multiplier: 1.5
+      ability2:
+        name: "&fAssassin's Veil"
+        description: "Tier 1 + Can attack while invisible"
+        cooldown: 50
+        duration: 6
+    tier3:
+      ability1:
+        name: "&bWeb Immunity"
+        description: "Tier 1+2 + Immune to cobwebs"
+        cooldown: 40
+        duration: 20
+        stun-duration: 2
+        stun-interval: 5
+        armor-damage-multiplier: 1.5
+        web-immunity: true
+      ability2:
+        name: "&fDesperate Strength"
+        description: "Tier 1+2 + Strength III when under 5 hearts"
+        cooldown: 50
+        duration: 6
+        low-health-strength: 2
+        low-health-threshold: 10.0
+
+  larry:
+    display-name: "&5Larry"
+    texture: "textures/entity/cat/larry.png"
+    custom-model-data: 1003
+    tier1:
+      ability1:
+        name: "&dBlinding Touch"
+        description: "Blinds hit enemies for 10 seconds"
+        cooldown: 25
+        blind-duration: 10
+      ability2:
+        name: "&dWeakening Aura"
+        description: "Enemy weapons deal 75% less damage for 15s"
+        cooldown: 35
+        duration: 15
+        damage-reduction: 0.75
+    tier2:
+      ability1:
+        name: "&dShadow Felines"
+        description: "Tier 1 + Summons 4 black cats attacking for 4s (0.5 heart/hit)"
+        cooldown: 50
+        blind-duration: 10
+        summon-count: 4
+        summon-duration: 4
+        summon-damage: 1.0
+      ability2:
+        name: "&dSwift Escape"
+        description: "Tier 1 + Speed III for 5 seconds"
+        cooldown: 35
+        duration: 15
+        damage-reduction: 0.75
+        speed-bonus: 2
+        speed-duration: 5
+    tier3:
+      ability1:
+        name: "&dPurifying Strike"
+        description: "Tier 1+2 + Removes enemy potion effects"
+        cooldown: 50
+        blind-duration: 10
+        summon-count: 4
+        summon-duration: 4
+        summon-damage: 1.0
+        remove-effects: true
+      ability2:
+        name: "&dTornado Cataclysm"
+        description: "Tier 1+2 + Tornado launches enemies 30 blocks up"
+        cooldown: 80
+        duration: 15
+        damage-reduction: 0.75
+        speed-bonus: 2
+        speed-duration: 5
+        tornado-radius: 5
+        tornado-height: 30
+        tornado-duration: 8
+
+# Placeholder cats (7 more to make 10 total)
+  whiskers:
+    display-name: "&fWhiskers"
+    texture: "textures/entity/cat/whiskers.png"
+    custom-model-data: 1004
+    tier1:
+      ability1:
+        name: "&fQuick Reflexes"
+        description: "Dodge next attack"
+        cooldown: 30
+        duration: 3
+      ability2:
+        name: "&fLucky Charm"
+        description: "Small chance for double drops"
+        cooldown: 60
+        duration: 30
+    tier2:
+      ability1:
+        name: "&fEnhanced Reflexes"
+        description: "Tier 1 + Speed II passive"
+        cooldown: 30
+        duration: 3
+        passive-effects: ["SPEED:1"]
+      ability2:
+        name: "&fFortune's Favor"
+        description: "Tier 1 + Fortune I on tools"
+        cooldown: 60
+        duration: 30
+    tier3:
+      ability1:
+        name: "&fMaster Evasion"
+        description: "Tier 1+2 + Auto-dodge when low health"
+        cooldown: 30
+        duration: 3
+        passive-effects: ["SPEED:1"]
+      ability2:
+        name: "&fGolden Touch"
+        description: "Tier 1+2 + Looting III on kills"
+        cooldown: 60
+        duration: 30
+
+  shadow:
+    display-name: "&8Shadow"
+    texture: "textures/entity/cat/shadow.png"
+    custom-model-data: 1005
+    tier1:
+      ability1:
+        name: "&8Night Vision"
+        description: "Night vision for 30s"
+        cooldown: 40
+        duration: 30
+      ability2:
+        name: "&8Silent Steps"
+        description: "No footstep sounds for 20s"
+        cooldown: 45
+        duration: 20
+    tier2:
+      ability1:
+        name: "&8Dark Sight"
+        description: "Tier 1 + See invisible entities"
+        cooldown: 40
+        duration: 30
+      ability2:
+        name: "&8Void Walk"
+        description: "Tier 1 + Phase through blocks for 5s"
+        cooldown: 60
+        duration: 5
+    tier3:
+      ability1:
+        name: "&8True Sight"
+        description: "Tier 1+2 + Permanent night vision"
+        cooldown: 40
+        duration: 30
+        passive-effects: ["NIGHT_VISION:0"]
+      ability2:
+        name: "&8Shadow Realm"
+        description: "Tier 1+2 + Teleport behind target"
+        cooldown: 60
+        duration: 5
+
+  ginger:
+    display-name: "&6Ginger"
+    texture: "textures/entity/cat/ginger.png"
+    custom-model-data: 1006
+    tier1:
+      ability1:
+        name: "&6Fireball"
+        description: "Shoot a fireball"
+        cooldown: 20
+      ability2:
+        name: "&6Warmth"
+        description: "Fire resistance for 15s"
+        cooldown: 30
+        duration: 15
+    tier2:
+      ability1:
+        name: "&6Inferno"
+        description: "Tier 1 + Fireball explodes"
+        cooldown: 20
+      ability2:
+        name: "&6Phoenix Down"
+        description: "Tier 1 + Revive once on death"
+        cooldown: 300
+    tier3:
+      ability1:
+        name: "&6Solar Flare"
+        description: "Tier 1+2 + Rain fireballs in area"
+        cooldown: 60
+      ability2:
+        name: "&6Eternal Flame"
+        description: "Tier 1+2 + Permanent fire immunity + thorns"
+        cooldown: 300
+        passive-effects: ["FIRE_RESISTANCE:0", "THORNS:1"]
+
+  smokey:
+    display-name: "&7Smokey"
+    texture: "textures/entity/cat/smokey.png"
+    custom-model-data: 1007
+    tier1:
+      ability1:
+        name: "&7Smoke Screen"
+        description: "Blind nearby enemies for 5s"
+        cooldown: 30
+        radius: 4
+        duration: 5
+      ability2:
+        name: "&7Camouflage"
+        description: "Blend with blocks for 10s"
+        cooldown: 40
+        duration: 10
+    tier2:
+      ability1:
+        name: "&7Choking Smoke"
+        description: "Tier 1 + Withers enemies in smoke"
+        cooldown: 30
+        radius: 4
+        duration: 5
+      ability2:
+        name: "&7Mist Form"
+        description: "Tier 1 + Damage reduction 50%"
+        cooldown: 40
+        duration: 10
+    tier3:
+      ability1:
+        name: "&7Toxic Cloud"
+        description: "Tier 1+2 + Poison + Wither in large area"
+        cooldown: 50
+        radius: 6
+        duration: 8
+      ability2:
+        name: "&7Gaseous Body"
+        description: "Tier 1+2 + Immune to physical damage for 8s"
+        cooldown: 60
+        duration: 8
+
+  luna:
+    display-name: "&dLuna"
+    texture: "textures/entity/cat/luna.png"
+    custom-model-data: 1008
+    tier1:
+      ability1:
+        name: "&dMoonlight Heal"
+        description: "Heal 4 hearts at night"
+        cooldown: 40
+      ability2:
+        name: "&dLunar Blessing"
+        description: "Regeneration II for 10s at night"
+        cooldown: 50
+        duration: 10
+    tier2:
+      ability1:
+        name: "&dMoon Guardian"
+        description: "Tier 1 + Strength I at night"
+        cooldown: 40
+      ability2:
+        name: "&dCelestial Shield"
+        description: "Tier 1 + Absorption hearts at night"
+        cooldown: 50
+        duration: 15
+    tier3:
+      ability1:
+        name: "&dFull Moon Power"
+        description: "Tier 1+2 + All stats boosted at night"
+        cooldown: 40
+        passive-effects: ["STRENGTH:0", "SPEED:0", "REGENERATION:0"]
+      ability2:
+        name: "&dMoon Goddess"
+        description: "Tier 1+2 + Revive with full health at night"
+        cooldown: 600
+
+  oreo:
+    display-name: "&fOreo"
+    texture: "textures/entity/cat/oreo.png"
+    custom-model-data: 1009
+    tier1:
+      ability1:
+        name: "&fBalance"
+        description: "Equalize health with target"
+        cooldown: 45
+      ability2:
+        name: "&fSwap"
+        description: "Swap positions with target"
+        cooldown: 30
+    tier2:
+      ability1:
+        name: "&fEquilibrium"
+        description: "Tier 1 + Balance hunger/saturation too"
+        cooldown: 45
+      ability2:
+        name: "&fDimensional Swap"
+        description: "Tier 1 + Swap inventories for 10s"
+        cooldown: 60
+        duration: 10
+    tier3:
+      ability1:
+        name: "&fPerfect Balance"
+        description: "Tier 1+2 + Mirror damage taken"
+        cooldown: 45
+      ability2:
+        name: "&fReality Warp"
+        description: "Tier 1+2 + Swap positions + health + effects"
+        cooldown: 80
+
+  mittens:
+    display-name: "&bMittens"
+    texture: "textures/entity/cat/mittens.png"
+    custom-model-data: 1010
+    tier1:
+      ability1:
+        name: "&bFrost Bite"
+        description: "Slow enemies on hit"
+        cooldown: 15
+        duration: 5
+      ability2:
+        name: "&bIce Path"
+        description: "Create ice blocks under feet for 5s"
+        cooldown: 25
+        duration: 5
+    tier2:
+      ability1:
+        name: "&bDeep Freeze"
+        description: "Tier 1 + Freeze enemies solid for 2s"
+        cooldown: 20
+        duration: 5
+      ability2:
+        name: "&bGlacial Armor"
+        description: "Tier 1 + Resistance I while on ice"
+        cooldown: 25
+        duration: 5
+        passive-effects: ["DAMAGE_RESISTANCE:0"]
+    tier3:
+      ability1:
+        name: "&bAbsolute Zero"
+        description: "Tier 1+2 + Instant kill if enemy < 2 hearts"
+        cooldown: 30
+        duration: 5
+      ability2:
+        name: "&bIce Age"
+        description: "Tier 1+2 + Large freeze aura, launch enemies up"
+        cooldown: 60
+        radius: 6
+        duration: 10
+
+# Items configuration
+items:
+  upgrade-fish:
+    material: "COOKED_COD"
+    custom-model-data: 2001
+    name: "&b&lUpgrade Fish &7(&e{cat}&7)"
+    lore:
+      - "&7Feed to your cat to upgrade to Tier 2"
+      - "&7Cat Type: &e{cat}"
+      - ""
+      - "&eRight-click your cat to feed"
+  tier3-core:
+    material: "NETHER_STAR"
+    custom-model-data: 2002
+    name: "&d&lTier 3 Upgrade Core &7(&e{cat}&7)"
+    lore:
+      - "&7Use on your cat to unlock Tier 3 abilities"
+      - "&7Cat Type: &e{cat}"
+      - ""
+      - "&eObtained from completing the ritual"
+      - "&eRight-click your cat to apply"
+  ritual-catalyst:
+    material: "BEACON"
+    custom-model-data: 2003
+    name: "&6&lRitual Catalyst"
+    lore:
+      - "&7Place to start Tier 3 ritual"
+      - "&7Duration: 1 hour"
+
+# Ritual configuration
+ritual:
+  duration-ticks: 72000  # 1 hour = 72000 ticks (20 ticks/sec * 3600 sec)
+  # Particle effects during ritual
+  particles:
+    - "ENCHANTMENT_TABLE"
+    - "END_ROD"
+    - "DRAGON_BREATH"
+    - "SOUL_FIRE_FLAME"
+  # Particle interval in ticks
+  particle-interval: 20
+  # Sound effects
+  sounds:
+    start: "ENTITY_ENDER_DRAGON_GROWL"
+    loop: "BLOCK_BEACON_POWER_SELECT"
+    complete: "ENTITY_PLAYER_LEVELUP"
+    fail: "ENTITY_ENDER_DRAGON_DEATH"
+  # Task bar settings
+  taskbar:
+    enabled: true
+    title: "&6&lTier 3 Ritual in Progress"
+    # Colors: GREEN, YELLOW, RED
+  # Requirements
+  requirements:
+    # Blocks that must be around catalyst (optional)
+    structure:
+      enabled: false
+      radius: 5
+      required-blocks:
+        - "OBSIDIAN"
+        - "CRYING_OBSIDIAN"
+    # Player must stay near catalyst
+    player-range: 20
+    # Cancel if player leaves
+    cancel-on-leave: true
+    # Cancel on damage
+    cancel-on-damage: true
+
+# Trust system
+trust:
+  # Max trusted players per cat
+  max-trusted: 10
+  # Trust lasts until removed
+  persistent: true
+
+# Messages
+messages:
+  prefix: "&8[&6CatPets&8] &r"
+  no-cat: "&cYou don't have a cat pet!"
+  already-have-cat: "&cYou already have a cat pet!"
+  cat-spawned: "&aYour cat &e{cat} &ahas spawned!"
+  cat-despawned: "&aYour cat has been despawned."
+  cat-teleported: "&aYour cat teleported to you."
+  tier-upgraded: "&aYour cat &e{cat} &ais now &bTier {tier}&a!"
+  max-tier: "&cYour cat is already at max tier!"
+  not-your-cat: "&cThat's not your cat!"
+  feeding-success: "&aYou fed &e{cat} &aan Upgrade Fish!"
+  feeding-fail: "&cThat cat doesn't need an Upgrade Fish!"
+  ritual-started: "&aTier 3 ritual started for &e{player}&a's &e{cat}&a! Duration: 1 hour."
+  ritual-complete: "&a&lRITUAL COMPLETE! &r&a&e{player} &areceived a &dTier 3 Upgrade Core &afor &e{cat}&a!"
+  ritual-failed: "&c&lRITUAL FAILED! &r&cThe ritual was interrupted."
+  ritual-cancelled: "&cRitual cancelled."
+  ritual-already-active: "&cA ritual is already active for this player!"
+  player-not-found: "&cPlayer not found!"
+  no-permission: "&cYou don't have permission for this command!"
+  trusted-added: "&a&e{player} &ais now trusted by your cat &e{cat}&a!"
+  trusted-removed: "&a&e{player} &ais no longer trusted by your cat &e{cat}&a!"
+  trusted-list: "&eTrusted players for {cat}: &7{list}"
+  trusted-self: "&cYou cannot trust yourself!"
+  already-trusted: "&cThat player is already trusted!"
+  not-trusted: "&cThat player is not trusted!"
+  cat-info:
+    - "&8&m--------------------"
+    - "&6&lCat Info"
+    - "&8&m--------------------"
+    - "&7Name: &e{cat}"
+    - "&7Tier: &b{tier}"
+    - "&7Owner: &e{owner}"
+    - "&7Trusted: &a{trusted-count}/{max-trusted}"
+    - "&8&m--------------------"
+  help:
+    - "&8&m--------------------"
+    - "&6&lCatPets Help"
+    - "&8&m--------------------"
+    - "&e/catpet help &7- Show this help"
+    - "&e/catpet info &7- Show your cat info"
+    - "&e/catpet tier &7- Show cat tier & abilities"
+    - "&e/catpet trust <player> &7- Trust a player"
+    - "&e/catpet untrust <player> &7- Untrust a player"
+    - "&e/catpet list &7- List all cat types"
+    - "&e/catpet call &7- Teleport cat to you"
+    - "&e/catpet dismiss &7- Dismiss your cat"
+    - "&8&m--------------------"
+  admin-help:
+    - "&8&m--------------------"
+    - "&6&lCatPets Admin Help"
+    - "&8&m--------------------"
+    - "&e/spawntier3 <player> [cat] &7- Start Tier 3 ritual"
+    - "&e/giveupgradefish <player> [cat] &7- Give Upgrade Fish"
+    - "&8&m--------------------"
+
+# Ability activation messages
+ability-messages:
+  james:
+    tier1-ability1: "&c&lIMMUNITY ACTIVATED! &r&cYou are immune to all damage for 5 seconds!"
+    tier1-ability2: "&a&lREGENERATION ZONE! &r&aTrusted players in range gain Regeneration II!"
+    tier2-ability1: "&c&lENHANCED IMMUNITY! &r&cStrength & Fire Resistance granted!"
+    tier2-ability2: "&a&lCORRUPTED ZONE! &r&cUntrusted players are poisoned!"
+    tier3-ability1: "&c&lULTIMATE IMMUNITY! &r&cLow health damage bonus active!"
+    tier3-ability2: "&a&lDOMAIN OF TRUST! &r&cUntrusted get Wither & cannot leave!"
+  bob:
+    tier1-ability1: "&b&lSTUNNING STRIKE! &r&bNext hits will stun enemies!"
+    tier1-ability2: "&f&lPHANTOM ARMOR! &r&fYou are invisible for 6 seconds!"
+    tier2-ability1: "&b&lARMOR SHREDDER! &r&bStuns now shred armor durability!"
+    tier2-ability2: "&f&lASSASSIN'S VEIL! &r&fYou can attack while invisible!"
+    tier3-ability1: "&b&lWEB IMMUNITY! &r&bYou are immune to cobwebs!"
+    tier3-ability2: "&f&lDESPERATE STRENGTH! &r&bStrength III when low health!"
+  larry:
+    tier1-ability1: "&d&lBLINDING TOUCH! &r&dEnemies you hit are blinded!"
+    tier1-ability2: "&d&lWEAKENING AURA! &r&dEnemy damage reduced by 75%!"
+    tier2-ability1: "&d&lSHADOW FELINES! &r&d4 black cats attack your enemy!"
+    tier2-ability2: "&d&lSWIFT ESCAPE! &r&dSpeed III for 5 seconds!"
+    tier3-ability1: "&d&lPURIFYING STRIKE! &r&dEnemy effects removed on hit!"
+    tier3-ability2: "&d&lTORNADO CATACLYSM! &r&dEnemies launched into the sky!"
+
+# Cooldown messages
+cooldown-message: "&cAbility on cooldown: &e{time}s remaining"
+
+# Update checker
+update-checker:
+  enabled: true
+  repo: "Zenuxs/CatPets"

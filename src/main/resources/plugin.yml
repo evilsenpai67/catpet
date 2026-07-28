@@ -1,0 +1,28 @@
+name: CatPets
+version: 1.0.0
+main: com.zenuxs.catpets.CatPets
+api-version: 1.21
+load: STARTUP
+authors: [Zenuxs]
+description: Immortal cat pets with unique abilities and tier upgrades
+commands:
+  catpet:
+    description: Main cat pet command
+    usage: /catpet <help|info|tier|trust|untrust|list>
+    aliases: [cp, cat]
+  spawntier3:
+    description: Start tier 3 ritual for a player (admin only)
+    usage: /spawntier3 <player> [catType]
+    permission: catpets.admin
+  giveupgradefish:
+    description: Give upgrade fish to player (admin only)
+    usage: /giveupgradefish <player> [catType]
+    permission: catpets.admin
+permissions:
+  catpets.admin:
+    description: Admin permissions for catpets
+    default: op
+  catpets.use:
+    description: Basic catpet usage
+    default: true
+softdepend: [PlaceholderAPI]
